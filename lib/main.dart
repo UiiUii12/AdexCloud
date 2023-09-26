@@ -1,7 +1,7 @@
-import 'package:adexcloud/Modules/Services/MesServices_screen.dart';
+import 'package:adexcloud/Layout/MainScreen.dart';
+import 'package:adexcloud/Layout/cubit/cubit.dart';
+import 'package:adexcloud/Layout/cubit/states.dart';
 import 'package:adexcloud/Shared/bloc_observer.dart';
-import 'package:adexcloud/cubit/cubit.dart';
-import 'package:adexcloud/cubit/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,17 +15,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: ( context) => GlobalCubit()..GetServices(),
-      child: BlocConsumer<GlobalCubit , GlobalStates>(
+      create: ( context) => LayoutCubit()..GetServices() ..GetCommandes() ..GetFactures() ,
+       // ..Login(),
+      child: BlocConsumer<LayoutCubit , LayoutStates>(
         builder: (context ,state) {
           return MaterialApp(
             title: 'Flutter Demo',
             theme: ThemeData(
 
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: MesServicesScreen(),
+            home: MainScreen(),
           );
         }, listener: (BuildContext context,  state) {  },
       ),
