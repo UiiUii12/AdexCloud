@@ -15,6 +15,7 @@ class LayoutCubit extends Cubit<LayoutStates> {
   LayoutCubit() :super(LayoutInitialState());
 
   static LayoutCubit get(context) => BlocProvider.of(context);
+
   String token = "DrLYQbkUMqVw4RlEx3PHokRbdm5xZgBNKNI8BrUm" ;
   /////////////////////////////// Service data and functions /////////////////////////////////////////////
   bool show_filter_service = false ;
