@@ -12,3 +12,11 @@ const Color terminatedColor=Color(0XFFFA1A0D);
 const Color suspendColor=Color(0XFFF4641C);
 const Color grey4=Color(0XFFF9F9F9);
 const Color grey5=Color(0XFFE0E0E0);
+/////////////////////////////////////////////
+const Color myCreditItem=Color(0XFFE0E0E0);
+const Color totalCommandsItem=Color(0XFFE0E0E0);
+const Color unpaidCommandsItem=Color(0XFFE0E0E0);
+const Color totalServicesItem=Color(0XFFE0E0E0);
+const Color pendingServicesItem=Color(0XFFE0E0E0);
+const Color totalInvoicesItem=Color(0XFFE0E0E0);
+const Color unpaidInvoiceItem=Color(0XFFE0E0E0);

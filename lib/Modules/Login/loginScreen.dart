@@ -2,7 +2,6 @@
 
 import 'package:adexcloud/Modules/Login/Cubit/cubit.dart';
 import 'package:adexcloud/Modules/Login/Cubit/states.dart';
-import 'package:adexcloud/Modules/Login/forgotPassword.dart';
 import 'package:adexcloud/Shared/Components/components.dart';
 import 'package:adexcloud/Shared/Style/Theme.dart';
 import 'package:adexcloud/Shared/Style/assets.dart';
@@ -29,7 +28,7 @@ class LoginScreen extends StatelessWidget {
                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 60,
+                      height: 79,
                     ),
                     Text(
                       'Connectez-vous',
@@ -42,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                         'Connectez-vous rapidement et en toute sécurité pour accéder à votre compte.',
                         style: FontStyles.style2,),
                     SizedBox(
-                      height: 40,
+                      height: 60,
                     ),
                     Text(
                       'Adresse email',
@@ -79,22 +78,17 @@ class LoginScreen extends StatelessWidget {
                           children: [
                             iconButton(
                               label: Text('Mot de passe oublié ?',style:FontStyles.style5),
-                              function:  () => Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ForgotPwdScreen()),),),
+                              function:()=>  cubit.ChangePassword()),
                             SizedBox(width: 40,)
                           ],
                         ),
                         SizedBox(
-                          height: 40,
+                          height: 50,
                         ),
                         defaultButton(
                             text: 'Se connecter',
                             function: () => {
                               cubit.login(
-                                  cubit.emailController.text.toString(),
-                                  cubit.passwordController.text.toString(),
                                   context),
                             }
                         ),

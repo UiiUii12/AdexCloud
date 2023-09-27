@@ -1,4 +1,4 @@
-package com.example.adexcloud
+package adex.cloud.dz;
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -8,5 +8,11 @@ class Assets {
   static String visibilityIcon= "Assets/Images/visibility.png";
   static String goBackIcon= "Assets/Images/goBack.png";
   static String mailSent="Assets/json/mail-sent.json";
-  static String noResult="Assets/json/no-result.json";
+  static String creditIcon="Assets/json/no-result.json";
+  static String commIcon="Assets/json/no-result.json";
+  static String panierIcon="Assets/json/no-result.json";
+  static String servicesIcon="Assets/json/no-result.json";
+  static String pendingServIcon="Assets/json/no-result.json";
+  static String facIcon="Assets/json/no-result.json";
+  static String unpaidFacIcon="Assets/json/no-result.json";
 }
