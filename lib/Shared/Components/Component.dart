@@ -1,8 +1,7 @@
 
-import 'package:adexcloud/Shared/style/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+const defaultColor =Color(0XFF566ACC) ;
 Widget defaultTextField({
   required TextEditingController controller,
   required TextInputType type,

@@ -1,7 +1,6 @@
 import 'package:adexcloud/Modules/Commandes/Commandes_screen.dart';
 import 'package:adexcloud/Modules/Facture/Facture_screen.dart';
 import 'package:adexcloud/Modules/Services/MesServices_screen.dart';
-import 'package:adexcloud/Shared/style/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +11,7 @@ class MainScreen extends StatefulWidget {
   State<MainScreen> createState() => _MainScreenState();
 }
 int current_index =0 ;
-
+final defaultColor =Color(0XFF566ACC) ;
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {

@@ -11,12 +11,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 class LayoutCubit extends Cubit<LayoutStates> {
   LayoutCubit() :super(LayoutInitialState());
 
   static LayoutCubit get(context) => BlocProvider.of(context);
+  late final token;
+  Future<void> initialize_token() async {
+    final prefs = await SharedPreferences.getInstance();
+    token =prefs.get("token") ;
+  }
 
-  String token = "DrLYQbkUMqVw4RlEx3PHokRbdm5xZgBNKNI8BrUm" ;
+
   /////////////////////////////// Service data and functions /////////////////////////////////////////////
   bool show_filter_service = false ;
   var i =1 ;
