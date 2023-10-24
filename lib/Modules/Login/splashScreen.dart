@@ -2,6 +2,7 @@
 
 import 'dart:async';
 
+import 'package:adexcloud/Layout/MainScreen.dart';
 import 'package:adexcloud/Shared/Style/Colors.dart';
 import 'package:adexcloud/Shared/Style/assets.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,7 +25,6 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     checkAuthAndNavigate();
   }
-
   ///////////////////////////////////////////////////////////
   Future<void> checkAuthAndNavigate() async {
     final prefs = await SharedPreferences.getInstance();
@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (authToken != null) {
       // User is already authenticated, navigate to home screen.
-      Navigator.pushReplacementNamed(context, AppRoute.dashboardScreen);
+      Navigator.pushReplacementNamed(context, '/layout');
     } else {
       // User is not authenticated, navigate to login screen.
       Navigator.pushReplacementNamed(context, AppRoute.loginScreen);

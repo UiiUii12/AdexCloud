@@ -36,7 +36,7 @@ class _MesFacturesScreenState extends State<MesFacturesScreen> with TickerProvid
                     Row(
                       children: [
                         Spacer() ,
-                        Image.asset("assets/images/logo.png") ,
+                        Image.asset("Assets/Images/logo.png") ,
 
                       ],
                     ),

@@ -16,11 +16,8 @@ class LayoutCubit extends Cubit<LayoutStates> {
   LayoutCubit() :super(LayoutInitialState());
 
   static LayoutCubit get(context) => BlocProvider.of(context);
-  late final token;
-  Future<void> initialize_token() async {
-    final prefs = await SharedPreferences.getInstance();
-    token =prefs.get("token") ;
-  }
+
+
 
 
   /////////////////////////////// Service data and functions /////////////////////////////////////////////
@@ -35,13 +32,14 @@ class LayoutCubit extends Cubit<LayoutStates> {
   TextEditingController date_to = TextEditingController() ;
   List ServiceStatus =["Tous" ,"Pending" , "Actif" , "Suspendu" , "Expired"] ;
   Future GetServices () async{
-
+    SharedPreferences prefs=await SharedPreferences.getInstance();
+    String token=prefs.get('token').toString();
     response = await http.get(
         Uri.parse(Global_url+Services) ,
         headers: {
           'Content-Type' : 'application/json' ,
           'Accept': 'application/json' ,
-          'api-mobile-token' : token
+          'api-mobile-token' : token,
         }
     ) ;
     if (response!.statusCode == 200) {
@@ -128,7 +126,8 @@ emit(FilterState());
   }
 
   Future GetCommandes () async{
-
+    SharedPreferences prefs=await SharedPreferences.getInstance();
+    String token=prefs.get('token').toString();
     response = await http.get(
         Uri.parse(Global_url+Commandes) ,
         headers: {
@@ -336,7 +335,8 @@ emit(FilterState());
   bool show_filter_facture =false ;
   int selected_item_facture = 0 ;
   Future GetFactures () async{
-
+    SharedPreferences prefs=await SharedPreferences.getInstance();
+    String token=prefs.get('token').toString();
     response = await http.get(
         Uri.parse(Global_url+Factures) ,
         headers: {

@@ -15,4 +15,5 @@ class Assets {
   static String pendingServIcon="Assets/json/no-result.json";
   static String facIcon="Assets/json/no-result.json";
   static String unpaidFacIcon="Assets/json/no-result.json";
+  static String photoDeProfil="Assets/Images/Ellipse 222.png";
 }

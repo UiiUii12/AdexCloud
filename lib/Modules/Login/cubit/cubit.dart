@@ -1,7 +1,9 @@
 
 import 'dart:convert';
+import 'package:adexcloud/Layout/MainScreen.dart';
 import 'package:adexcloud/Modules/Dashboard/DashboardScreen.dart';
 import 'package:adexcloud/Shared/Network/Endpoints.dart';
+import 'package:adexcloud/Shared/Style/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:adexcloud/Modules/Login/Cubit/states.dart';
@@ -10,6 +12,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../../Layout/cubit/cubit.dart';
 
 
 class LoginCubit extends Cubit<LoginStates>{
@@ -52,11 +56,12 @@ class LoginCubit extends Cubit<LoginStates>{
         print("*******************************************");
         var data=jsonDecode(response.body);
         saveAuthToken(data['name'],data['email'],data['token'],);
+
         print('&&&&&&&&&&&&&&&&&&&&&&&&&${data['token']}&&&&&&&&&&&&&&&&&&&');
         Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-            builder: (context) => DashboardScreen()));}
+            builder: (context) => MainScreen()));}
       else{
         print("khata2*********************************************");
       }
@@ -64,9 +69,18 @@ class LoginCubit extends Cubit<LoginStates>{
     catch(e){
        print('**************************${e.toString()}*****&&&&&***************');
     }
+    emit(SaveTokenState());
   }
   ////////////////////////////////////////////////////////////////////
 
+ void signout(BuildContext context)async{
+    try{
+      SharedPreferences prefs =await SharedPreferences.getInstance();
+      prefs.remove('token');
+      Navigator.pushReplacementNamed(context, AppRoute.loginScreen);
 
+      print(prefs.get('token'));
+    }catch(e){}
+ }
 
 }

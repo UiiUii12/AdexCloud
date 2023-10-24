@@ -6,6 +6,7 @@ import 'package:adexcloud/Shared/Components/components.dart';
 import 'package:adexcloud/Shared/Style/Colors.dart';
 import 'package:adexcloud/Shared/Style/Theme.dart';
 import 'package:adexcloud/Shared/Style/assets.dart';
+import 'package:adexcloud/Shared/Style/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -43,10 +44,8 @@ class DashboardScreen extends StatelessWidget {
                         iconButton(
                             label: Image.asset(Assets.notificationsIcon),
                             function: () async {
-                              SharedPreferences prefs=await SharedPreferences.getInstance();
-                              print(prefs.get('name'));
-                              print(prefs.get('email'));
-                            print(prefs.get('token'));}
+                              Navigator.pushReplacementNamed(context, AppRoute.profilScreen);
+                             }
                               ),
                       ],
                     ),

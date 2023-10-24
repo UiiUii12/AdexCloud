@@ -1,6 +1,9 @@
 
+import 'package:adexcloud/Shared/Style/Theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../Style/assets.dart';
 const defaultColor =Color(0XFF566ACC) ;
 Widget defaultTextField({
   required TextEditingController controller,
@@ -249,4 +252,44 @@ Widget Filter (
       ),
     ]),
   );
+
 }
+Widget profilComp({required String icon, required String item,required String route}){
+  return Container(
+    height:45 ,
+      width: 316,
+      decoration: BoxDecoration(
+      borderRadius: BorderRadius.circular(8) ,
+  color: Colors.white,
+  boxShadow: [
+  BoxShadow(
+  color: Colors.grey.withOpacity(0.5) ,
+  spreadRadius: 0 ,
+  blurRadius: 8,
+  offset: Offset(2,4) ,
+  )
+  ]
+  ),
+  child: Padding(
+  padding:  EdgeInsets.symmetric(vertical: 10 , horizontal: 10),
+  child: Row(
+  children: [
+    SizedBox(width: 10,),
+    SizedBox(
+     height: 15,
+     width: 15,
+     child: Image.asset(icon)),
+    SizedBox(width: 10,),
+    Text(item,style: FontStyles.style5,),
+    SizedBox(width: 30,),
+    SizedBox(
+    height: 15,
+    width: 15,
+    child: Image.asset(Assets.seeMoreIcon)),
+
+  ],
+  ),
+  ));
+}
+
+
